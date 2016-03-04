@@ -45,4 +45,3 @@ gem 'pry'
 
 gem 'devise'
 gem 'cancan'
-gem 'mailcatcher'

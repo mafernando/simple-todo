@@ -1,0 +1,22 @@
+---
+version: '2'
+services:
+  common:
+    build: "."
+    environment:
+      DATABASE_URL: mysql2://root:zBcWtLjoFyrQGNZFP9cjsA@db:3306/app
+      RACK_ENV: production
+  app:
+    extends:
+      service: common
+    links:
+    - db
+    ports:
+    - 3000:3000
+    command: rails s -b 0.0.0.0
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: zBcWtLjoFyrQGNZFP9cjsA
+
